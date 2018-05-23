@@ -1,14 +1,17 @@
+import re
 from urllib.request import urlopen
-bog=urlopen("http://www.bilibili.com/")
+
 from bs4 import BeautifulSoup
+
+bog=urlopen("http://www.bilibili.com/")
 obj=BeautifulSoup(bog)
 pics=obj.findAll('img')
-import re
-pattern = re.compile(r'"//.+"\s')
+pattern = re.compile(r'//.+@')
 img=[]
 for u in pics:
     s=str(u)
     if(pattern.search(s)):
-        img.append(re.findall(pattern,s))
+        p=re.findall(pattern,s)
+        img.append(p)
 for p in img:
     print(p)
