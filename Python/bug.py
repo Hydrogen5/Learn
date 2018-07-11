@@ -1,5 +1,7 @@
 import re
 import urllib.request
+
+
 def getHtml(url):
     page=urllib.request.urlopen(url)
     html=page.read()

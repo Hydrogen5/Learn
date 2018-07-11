@@ -4,7 +4,7 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
 bog=urlopen("http://www.bilibili.com/")
-obj=BeautifulSoup(bog)
+obj=BeautifulSoup(bog,"html5lib")
 pics=obj.findAll('img')
 pattern = re.compile(r'//.+@')
 img=[]
